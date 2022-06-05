@@ -41,3 +41,104 @@
 .first-footer-button {
   margin-right: 30px;
 }
+
+.disabled-button {
+  pointer-events: none;
+}
+
+.invis-button {
+  display: none;
+}
+
+/*  ================================================================= */
+
+.fa-calendar {
+  font-size: 4rem;
+}
+
+.fa-bed {
+  font-size: 4rem;
+}
+
+.fa-credit-card {
+  font-size: 4rem;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 10px;
+  max-width: 100%;
+  width: 700px;
+}
+
+.progress-container::before {
+  content: "";
+  background-color: gray;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.progress {
+  background-color: red;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.circles {
+  background-color: white;
+  color: #999;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  border: 3px solid #b2bec3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s ease;
+}
+
+.circles.active {
+  border-color: red;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+}
+
+/*  ================================================================= */
+
+.infobox {
+  background-color: #b6d6f0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-right: 300px;
+  margin-left: 300px;
+  height: 10vh;
+}
+
+.infobox-top {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.infobox-bot {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
