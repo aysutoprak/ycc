@@ -10,14 +10,15 @@
 
 .date-form {
   display: flex;
-  background-color: #154c79;
-  height: 30vh;
+  background-color: #b6d6f0;
+  height: 40vh;
   margin-left: 300px;
   margin-right: 300px;
   align-items: center;
   text-align: center;
   justify-content: center;
   flex-direction: column;
+  border-radius: 20px;
 }
 
 .form-group {
@@ -29,21 +30,40 @@
 
 .footer-div {
   margin-top: 25px;
-  background-color: #154c79;
+  background-color: #b6d6f0;
   height: 10vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-left: 300px;
   margin-right: 300px;
+  border-radius: 20px;
 }
 
 .first-footer-button {
   margin-right: 30px;
+  background-color: #154c79;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 3px;
+}
+
+.back-footer-button {
+  margin-right: 30px;
+  color: blue;
+  background-color: #a123a100;
+  padding: 8px;
+  border: none;
+  border-radius: 3px;
+  display: flex;
+  margin-right: 700px;
+  text-decoration: underline;
 }
 
 .disabled-button {
   pointer-events: none;
+  display: none;
 }
 
 .invis-button {
@@ -64,6 +84,9 @@
   font-size: 4rem;
 }
 
+.container {
+  border-radius: 20px;
+}
 .progress-container {
   display: flex;
   justify-content: space-between;
@@ -87,7 +110,6 @@
 }
 
 .progress {
-  background-color: red;
   position: absolute;
   top: 50%;
   left: 0;
@@ -123,6 +145,7 @@
 
 .infobox {
   background-color: #b6d6f0;
+  border-radius: 20px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -141,4 +164,34 @@
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
+}
+
+/* ================================================================= */
+
+.paymentbox {
+  display: flex;
+  background-color: #b6d6f0;
+  height: 40vh;
+  margin-left: 300px;
+  margin-right: 300px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+/*  ==============================*/
+
+.finalbox {
+  display: flex;
+  background-color: #b6d6f0;
+  height: 40vh;
+  margin-left: 300px;
+  margin-right: 300px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 20px;
 }

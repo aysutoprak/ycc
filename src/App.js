@@ -6,7 +6,6 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 var count = 0;
-const circleList = ["first", "second", "third"];
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +16,7 @@ class App extends Component {
       width: "0%",
       oneActive: false,
       twoActive: false,
+      buttonDisable: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -38,6 +38,13 @@ class App extends Component {
       this.setState({ currentActive, width, route, twoActive });
     }
 
+    if (count === 2) {
+      let route = "finalPage";
+      let buttonDisable = true;
+      this.setState({ route, buttonDisable });
+    }
+    console.log(count);
+    console.log(this.state.route);
     count++;
   };
 
@@ -58,6 +65,31 @@ class App extends Component {
       let oneActive = true;
       let twoActive = false;
       this.setState({ currentActive, width, route, oneActive, twoActive });
+    }
+    if (count === 2) {
+      let currentActive = "2";
+      let width = "100%";
+      let route = "paymentPage";
+      let oneActive = true;
+      let twoActive = true;
+      let buttonDisable = false;
+      this.setState({
+        currentActive,
+        width,
+        route,
+        oneActive,
+        twoActive,
+        buttonDisable,
+      });
+    }
+    if (count === 3) {
+      let route = "finalPage";
+      let buttonDisable = false;
+      this.setState({ route, buttonDisable });
+    }
+    if (count === 4) {
+      let buttonDisable = false;
+      this.setState({ buttonDisable });
     }
   };
 
@@ -165,9 +197,13 @@ class App extends Component {
             </div>
             <div className="selectview"></div>
           </div>
-        ) : (
+        ) : this.state.route === "paymentPage" ? (
           <div className="paymentbox">
             <h1>Payment Page</h1>
+          </div>
+        ) : (
+          <div className="finalbox">
+            <h1>Final Page</h1>
           </div>
         )}
         <div className="footer-div">
@@ -175,15 +211,22 @@ class App extends Component {
             onClick={this.backClick}
             className={`${
               this.state.oneActive
-                ? ""
+                ? "back-footer-button"
                 : this.state.twoActive
-                ? ""
+                ? "back-footer-button"
                 : "invis-button"
             }`}
           >
             Geri
           </button>
-          <button onClick={this.handleClick} className="first-footer-button">
+          <button
+            onClick={this.handleClick}
+            className={`${
+              this.state.buttonDisable
+                ? "first-footer-button disabled-button"
+                : "first-footer-button"
+            }`}
+          >
             Kaydet ve Devam Et
           </button>
         </div>
