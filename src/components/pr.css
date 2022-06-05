@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  background-color: #154c79;
+  margin-top: 25px;
+  margin-right: 300px;
+  margin-left: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  overflow: hidden;
+  z-index: -2;
+  text-align: center;
+}
+
+.fa-calendar {
+  font-size: 4rem;
+}
+
+.fa-bed {
+  font-size: 4rem;
+}
+
+.fa-credit-card {
+  font-size: 4rem;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 10px;
+  max-width: 100%;
+  width: 700px;
+}
+
+.progress-container::before {
+  content: "";
+  background-color: gray;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.progress {
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.circles {
+  background-color: #154c79;
+  color: #999;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  border: 3px solid #b2bec3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s ease;
+}
+
+.circles.active {
+  background-color: white;
+  border-color: rgb(255, 255, 255);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+}
