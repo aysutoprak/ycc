@@ -203,7 +203,7 @@ class App extends Component {
           </div>
         ) : (
           <div className="finalbox">
-            <h1>Final Page</h1>
+            <h1>Final Page </h1>
           </div>
         )}
         <div className="footer-div">
