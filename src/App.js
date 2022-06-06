@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Progressbar from "./components/Progressbar";
 import DatePicker from "react-datepicker";
+import CustomListDropDown from "./components/CustomListDropDown";
 
 import "react-datepicker/dist/react-datepicker.css";
 var count = 0;
@@ -156,6 +157,7 @@ class App extends Component {
         </div>
         {this.state.route === "firstPage" ? (
           <div>
+            <CustomListDropDown />
             <form className="date-form" onSubmit={this.onFormSubmit}>
               <div className="form-group">
                 <div>
