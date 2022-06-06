@@ -13,12 +13,14 @@ class App extends Component {
       route: "firstPage",
       currentActive: "0",
       startDate: new Date(),
+      endDate: new Date(),
       width: "0%",
       oneActive: false,
       twoActive: false,
       buttonDisable: false,
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleStartDateChange = this.handleStartDateChange.bind(this);
+    this.handleEndDateChange = this.handleEndDateChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
@@ -43,8 +45,6 @@ class App extends Component {
       let buttonDisable = true;
       this.setState({ route, buttonDisable });
     }
-    console.log(count);
-    console.log(this.state.route);
     count++;
   };
 
@@ -93,11 +93,18 @@ class App extends Component {
     }
   };
 
-  handleChange(date) {
+  handleStartDateChange(date) {
     this.setState({
       startDate: date,
     });
   }
+
+  handleEndDateChange(date) {
+    this.setState({
+      endDate: date,
+    });
+  }
+
   onFormSubmit(e) {
     e.preventDefault();
     console.log(this.state.startDate);
@@ -138,47 +145,45 @@ class App extends Component {
         {this.state.route === "firstPage" ? (
           <div>
             <form className="date-form" onSubmit={this.onFormSubmit}>
-              <div className="labels">
-                <h6>Giriş Tarihi</h6>
-                <h6>Çıkış Tarihi</h6>
-                <h6>Yetişkin Sayısı</h6>
-                <h6>Çocuk Sayısı</h6>
-              </div>
               <div className="form-group">
-                <DatePicker
-                  selected={this.state.startDate}
-                  onChange={this.handleChange}
-                  showTimeSelect
-                  timeFormat="HH:mm"
-                  timeIntervals={20}
-                  timeCaption="time"
-                  dateFormat="MMMM d, yyyy h:mm aa"
-                />
-                <DatePicker
-                  selected={this.state.startDate}
-                  onChange={this.handleChange}
-                  showTimeSelect
-                  timeFormat="HH:mm"
-                  timeIntervals={20}
-                  timeCaption="time"
-                  dateFormat="MMMM d, yyyy h:mm aa"
-                />
-                <select name="" id="yetiskin">
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-                <select name="" id="cocuk">
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
+                <div>
+                  <label>Giriş Tarihi</label>
+                  <DatePicker
+                    selected={this.state.startDate}
+                    onChange={this.handleStartDateChange}
+                    dateFormat="MMMM d, yyyy"
+                  />
+                </div>
+                <div>
+                  <label>Çıkış Tarihi</label>
+                  <DatePicker
+                    selected={this.state.endDate}
+                    onChange={this.handleEndDateChange}
+                    dateFormat="MMMM d, yyyy"
+                  />
+                </div>
+                <div>
+                  <label className="yetiskin-select">Yetişkin Sayısı</label>
+                  <select name="" id="yetiskin">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="cocuk-select">Çocuk Sayısı</label>
+                  <select name="" id="cocuk">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
               </div>
             </form>
           </div>
