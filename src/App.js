@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 var count = 0;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -18,13 +19,18 @@ class App extends Component {
       oneActive: false,
       twoActive: false,
       buttonDisable: false,
+      yetiskin: 0,
+      cocuk: 0,
     };
     this.handleStartDateChange = this.handleStartDateChange.bind(this);
     this.handleEndDateChange = this.handleEndDateChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.handleChangeYetiskin = this.handleChangeYetiskin.bind(this);
+    this.handleChangeCocuk = this.handleChangeCocuk.bind(this);
   }
 
   handleClick = () => {
+    console.log(this.state.startDate);
     if (count === 0) {
       let currentActive = "1";
       let width = "50%";
@@ -93,21 +99,27 @@ class App extends Component {
     }
   };
 
-  handleStartDateChange(date) {
-    this.setState({
-      startDate: date,
-    });
+  handleStartDateChange(startDate) {
+    this.setState({ startDate: startDate });
+    console.log(startDate);
   }
 
-  handleEndDateChange(date) {
-    this.setState({
-      endDate: date,
-    });
+  handleEndDateChange(endDate) {
+    this.setState({ endDate: endDate });
+    console.log(endDate);
   }
 
   onFormSubmit(e) {
     e.preventDefault();
     console.log(this.state.startDate);
+  }
+
+  handleChangeYetiskin(e) {
+    this.setState({ yetiskin: e.target.value });
+  }
+
+  handleChangeCocuk(e) {
+    this.setState({ cocuk: e.target.value });
   }
 
   render() {
@@ -151,20 +163,25 @@ class App extends Component {
                   <DatePicker
                     selected={this.state.startDate}
                     onChange={this.handleStartDateChange}
-                    dateFormat="MMMM d, yyyy"
+                    dateFormat="dd MMMM yyyy"
                   />
                 </div>
+                <i className="fa-regular fa-calendar"></i>
                 <div>
                   <label>Çıkış Tarihi</label>
                   <DatePicker
                     selected={this.state.endDate}
                     onChange={this.handleEndDateChange}
-                    dateFormat="MMMM d, yyyy"
+                    dateFormat="dd MMMM yyyy"
                   />
                 </div>
                 <div>
                   <label className="yetiskin-select">Yetişkin Sayısı</label>
-                  <select name="" id="yetiskin">
+                  <select
+                    onChange={this.handleChangeYetiskin}
+                    name=""
+                    id="yetiskin"
+                  >
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -175,7 +192,7 @@ class App extends Component {
                 </div>
                 <div>
                   <label className="cocuk-select">Çocuk Sayısı</label>
-                  <select name="" id="cocuk">
+                  <select onChange={this.handleChangeCocuk} name="" id="cocuk">
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -194,10 +211,12 @@ class App extends Component {
                 <p>Otel İsmi</p>
               </div>
               <div className="infobox-bot">
-                <p>Giriş Tarihi : 10.8.2022</p>
-                <p>Çıkış Tarihi: 11.9.2022</p>
-                <p>Yetişkin : 3</p>
-                <p>Çocuk: 4</p>
+                <p>
+                  Giriş Tarihi : {this.state.startDate.toLocaleDateString()}
+                </p>
+                <p>Çıkış Tarihi: {this.state.endDate.toLocaleDateString()}</p>
+                <p>Yetişkin : {this.state.yetiskin}</p>
+                <p>Çocuk: {this.state.cocuk}</p>
               </div>
             </div>
             <div className="selectview"></div>
